@@ -1,0 +1,16 @@
+EmployeeID,Experience,Education,JobRole,Location,SkillsCount,Age,Salary
+1,1,Bachelor,Data Analyst,Indore,3,23,25000
+2,3,Master,Software Engineer,Bangalore,5,27,60000
+3,5,Master,Data Scientist,Hyderabad,6,30,95000
+4,2,Bachelor,HR Executive,Delhi,2,25,30000
+5,7,PhD,Data Scientist,Bangalore,7,34,130000
+6,4,Bachelor,Software Engineer,Pune,4,28,70000
+7,6,Master,Project Manager,Mumbai,5,32,110000
+8,1,Bachelor,Support Engineer,Chennai,2,24,22000
+9,8,Master,Team Lead,Bangalore,6,36,140000
+10,10,PhD,AI Engineer,Hyderabad,8,40,180000
+11,3,Bachelor,QA Engineer,Pune,3,27,50000
+12,5,Master,Data Analyst,Delhi,4,29,80000
+13,2,Bachelor,HR Executive,Mumbai,2,26,32000
+14,9,Master,Architect,Bangalore,7,38,160000
+15,4,Bachelor,Software Engineer,Chennai,4,28,75000
