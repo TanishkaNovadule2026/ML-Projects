@@ -15,7 +15,7 @@ Use only that model which r2 score is greater then other model
 
 
 """Prediction helpers for the salary model."""
-"""import os
+import os
 import joblib
 import pandas as pd
 
@@ -39,11 +39,9 @@ for candidate in MODEL_CANDIDATES:
             model = None
 
 
-# -------------------------------
 # Build Input
-# -------------------------------
 
-def _build_input(experience, education, job_role, location, skills_count):
+def _build_input(experience, education, job_role, location, skills_count, age):
     #Build one-row dataframe exactly like X_train
     input_df = pd.DataFrame(
         {
@@ -52,6 +50,7 @@ def _build_input(experience, education, job_role, location, skills_count):
             "JobRole": [job_role],
             "Location": [location],
             "SkillsCount": [skills_count],
+            "Age":[age]
         }
     )
 
@@ -64,22 +63,21 @@ def _build_input(experience, education, job_role, location, skills_count):
     return input_df
 
 
-# -------------------------------
+ 
 # Fallback Prediction
-# -------------------------------
 
-def fallback_predict(experience, education, job_role, location, skills_count):
+
+def fallback_predict(experience, education, job_role, location, skills_count, age):
     #Used if no trained model artifact is available.
     salary = 300000 + experience * 50000 + skills_count * 10000
     return round(max(salary, 0), 2), "Fallback Model"
 
 
-# -------------------------------
-# Predict Salary
-# -------------------------------
 
-def predict_salary(experience, education, job_role, location, skills_count):
-    X_input = _build_input(experience, education, job_role, location, skills_count)
+# Predict Salary
+
+def predict_salary(experience, education, job_role, location, skills_count, age):
+    X_input = _build_input(experience, education, job_role, location, skills_count, age)
 
     if model is not None:
         try:
@@ -88,4 +86,4 @@ def predict_salary(experience, education, job_role, location, skills_count):
         except Exception:
             pass
 
-    return fallback_predict(experience, education, job_role, location, skills_count)"""
+    return fallback_predict(experience, education, job_role, location, skills_count,age)

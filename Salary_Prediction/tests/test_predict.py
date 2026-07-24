@@ -14,16 +14,18 @@ from src.train import X_train
 
 class PredictInputTests(unittest.TestCase):
     def test_build_input_matches_training_columns(self):
-        X_input = _build_input(5, "Bachelor", "Data Analyst", "Delhi", 6)
-
+        X_input = _build_input(5, "Bachelor", "Data Analyst", "Delhi", 6, 23)
+        # Is the returned object a dataframe?
         self.assertIsInstance(X_input, pd.DataFrame)
+        # this check one row should be created 
         self.assertEqual(X_input.shape[0], 1)
+        #Both list are identical like feature in test data same a training dataset feature. If one column is missing then prediction fails 
         self.assertListEqual(list(X_input.columns), list(X_train.columns))
-
+# 
     def test_prediction_is_not_negative(self):
-        pred, _ = predict_salary(5, "Bachelor", "Data Analyst", "Delhi", 6)
+        pred, _ = predict_salary(5, "Bachelor", "Data Analyst", "Delhi", 6, 23)
         self.assertGreaterEqual(pred, 0)
-
+# instead of using real ML model. It create a fake model 
     def test_prediction_returns_loaded_model_name(self):
         class DummyModel:
             def predict(self, _input_df):
